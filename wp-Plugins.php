@@ -3,7 +3,7 @@
 /*
 Plugin Name: Plugins 
 Plugin URI: 
-Description: 
+Description: Foco em aprendizado
 Version: 1.0
 Author: Gabriel Madeira
 Author URI: https://github.com/Madeiira
@@ -31,3 +31,57 @@ add_action( 'login_head','wp_alert_wp_Hello_World' ); // especificar aonde você
 }
 add_filter('the_content', 'add_advertising');
 */
+// not workig yet
+/*
+function shortcode_Top_Blogueiros_Front_End(){
+
+    echo"<h1 style='color:white'> O shortcode está a funcionar it's working  </h1> ";
+   
+
+}
+*/
+/*
+function shortcode_Top_Blogueiros_Register(){
+
+    add_shortcode( 'topblogueiros','shortcode_Top_Blogueiros_Front_End'  );
+
+}
+add_action( 'init', 'shortcode_Top_Blogueiros_Register' );
+  */ 
+ 
+/*function foobar_func ($atts) { //new test
+	return "foo e bar";
+}
+add_shortcode ('foobar', 'foobar_func');
+function bartag_func ($atts) {
+	$a = shortcode_atts (array (
+		'foo' => 'algo',
+		'bar' => 'algo mais',
+	), $atts);
+
+	return "foo = {$a ['foo']}";
+}
+add_shortcode ('bartag', 'bartag_func');
+*/
+add_shortcode ('demo_shortcode', 'demo_shortcode_callback_function');
+
+
+
+function demo_shortcode_callback_function ($atts) {
+	echo"Bem-vindo ao WordPress";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+?>
