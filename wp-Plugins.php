@@ -1,3 +1,4 @@
+
 <?php 
 
 /*
@@ -32,22 +33,37 @@ add_action( 'login_head','wp_alert_wp_Hello_World' ); // especificar aonde você
 add_filter('the_content', 'add_advertising');
 */
 // not workig yet
-/*
-function shortcode_Top_Blogueiros_Front_End(){
 
-    echo"<h1 style='color:white'> O shortcode está a funcionar it's working  </h1> ";
-   
+
+// ======================================================== // Criação // manipulação de plugins // Shortcodes // ========================================================================
+function shortcode_Top_Blogueiros_Front_End(){
+	$dados= get_users();
+    echo"<h1 style='color:white'> List  </h1> ";
+	echo"<p></p>";
+
+	foreach ($dados as $dado){
+		
+		echo "<p style='color:white'>Nome:".$dado->user_nicename."</p>";
+		echo "<p style='color:white'>Email:".$dado->user_email."</p>";
+		if(empty($dado->user_url)){
+			$dado->user_url = "Este usuario não possui site";
+		}
+		echo"<p style='color:white'>URL:".$dado->user_url."</p>";
+		
+	}
+
+
 
 }
-*/
-/*
+
+
 function shortcode_Top_Blogueiros_Register(){
 
     add_shortcode( 'topblogueiros','shortcode_Top_Blogueiros_Front_End'  );
 
 }
 add_action( 'init', 'shortcode_Top_Blogueiros_Register' );
-  */ 
+  
  
 /*function foobar_func ($atts) { //new test
 	return "foo e bar";
